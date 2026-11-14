@@ -425,6 +425,9 @@ function App() {
           <SectionHeading number="04">Have a good one in mind?</SectionHeading>
           <div className="contact-content">
             <h2>Let&apos;s make it<br />work beautifully.</h2>
+            <a className="contact-email" href="tel:+918887939760">
+              +91 8887939760 <span aria-hidden="true">↗</span>
+            </a>
             <a className="contact-email" href="mailto:akshanshy2@gmail.com">
               akshanshy2@gmail.com <span aria-hidden="true">↗</span>
             </a>
