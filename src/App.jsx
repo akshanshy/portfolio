@@ -159,7 +159,7 @@ function App() {
                 <a className="text-link" href="#projects">
                   Explore my work <span aria-hidden="true">↓</span>
                 </a>
-                <a className="text-link text-link-muted" href="/resume.pdf" target="_blank" rel="noreferrer">
+                <a className="text-link text-link-muted" href="/rough resume.pdf" target="_blank" rel="noreferrer">
                   View résumé <span aria-hidden="true">↗</span>
                 </a>
               </div>
