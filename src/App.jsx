@@ -159,10 +159,17 @@ function App() {
                 <a className="text-link" href="#projects">
                   Explore my work <span aria-hidden="true">↓</span>
                 </a>
-                <a className="text-link text-link-muted" href="/rough resume.pdf" target="_blank" rel="noreferrer">
-                  View résumé <span aria-hidden="true">↗</span>
+                <a className="hero-resume-link" href="/rough resume.pdf" target="_blank" rel="noreferrer">
+                  View résumé <span aria-hidden="true">⬇</span>
                 </a>
               </div>
+            </div>
+            <div className="hero-social-links" aria-label="Social profiles">
+              {socialLinks.map((link) => (
+                <a key={link.name} href={link.url} target="_blank" rel="noreferrer">
+                  {link.name} <span aria-hidden="true">↗</span>
+                </a>
+              ))}
             </div>
           </div>
           <IsometricShowcase
