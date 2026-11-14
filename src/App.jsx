@@ -113,25 +113,32 @@ function App() {
 
       <main>
         <section className="hero section-wrap" id="home">
-          <p className="eyebrow"><span className="availability-dot" /> Software development · Backend engineering</p>
-          <h1>
-            Akshansh
-            <br />
-            Yadav<span className="hero-period">.</span>
-          </h1>
-          <div className="hero-bottom">
-            <p className="hero-intro">
-              Final-year B.Tech student building toward software development and backend engineering roles.
-            </p>
-            <div className="hero-links">
-              <a className="text-link" href="#projects">
-                Explore my work <span aria-hidden="true">↓</span>
-              </a>
-              <a className="text-link text-link-muted" href="/resume.pdf" target="_blank" rel="noreferrer">
-                View résumé <span aria-hidden="true">↗</span>
-              </a>
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="availability-dot" /> Software development · Backend engineering</p>
+            <h1>
+              Akshansh
+              <br />
+              Yadav<span className="hero-period">.</span>
+            </h1>
+            <div className="hero-bottom">
+              <p className="hero-intro">
+                Final-year B.Tech student building toward software development and backend engineering roles.
+              </p>
+              <div className="hero-links">
+                <a className="text-link" href="#projects">
+                  Explore my work <span aria-hidden="true">↓</span>
+                </a>
+                <a className="text-link text-link-muted" href="/resume.pdf" target="_blank" rel="noreferrer">
+                  View résumé <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
           </div>
+          <IsometricShowcase
+            className="hero-showcase"
+            src="/akshansh-showcase.jpg"
+            alt="Portrait of Akshansh Yadav"
+          />
           <span className="hero-index" aria-hidden="true">01 / 04</span>
         </section>
 
@@ -166,11 +173,6 @@ function App() {
                 </a>
               </div>
             </div>
-            <IsometricShowcase
-              className="about-showcase"
-              src="/akshansh-showcase.jpg"
-              alt="Portrait of Akshansh Yadav"
-            />
           </div>
         </section>
 
