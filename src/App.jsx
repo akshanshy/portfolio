@@ -11,31 +11,87 @@ const navigation = [
 const skillGroups = [
   {
     title: 'Languages',
-    items: ['C++', 'JavaScript', 'Python', 'SQL'],
+    items: [
+      { name: 'C++' },
+      { name: 'JavaScript' },
+      { name: 'Python' },
+      { name: 'SQL' },
+    ],
   },
   {
     title: 'Backend',
-    items: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'JWT', 'Razorpay'],
+    items: [
+      { name: 'Node.js', core: true },
+      { name: 'Express.js', core: true },
+      { name: 'FastAPI', context: 'AI Event Assistant' },
+      { name: 'REST APIs' },
+      { name: 'JWT' },
+      { name: 'Razorpay' },
+    ],
   },
   {
     title: 'Frontend',
-    items: ['React.js', 'HTML', 'CSS'],
+    items: [{ name: 'React.js' }, { name: 'HTML' }, { name: 'CSS' }],
   },
   {
     title: 'Data & Caching',
-    items: ['MongoDB', 'MySQL', 'Redis'],
+    items: [
+      { name: 'MongoDB', core: true },
+      { name: 'MySQL' },
+      { name: 'Redis', core: true, context: 'Fiestura' },
+    ],
   },
   {
-    title: 'GenAI',
-    items: ['Groq API', 'LLM Integration', 'Structured Output (Pydantic)'],
+    title: 'GenAI / Data Science',
+    items: [
+      { name: 'Groq API' },
+      { name: 'LLM Integration' },
+      { name: 'Structured Output (Pydantic)' },
+      { name: 'Pandas' },
+      { name: 'Matplotlib' },
+    ],
   },
   {
     title: 'Tools',
-    items: ['Docker', 'Git', 'GitHub', 'Postman', 'Pytest', 'Pandas', 'Matplotlib'],
+    items: [
+      { name: 'Docker', core: true },
+      { name: 'Git' },
+      { name: 'GitHub' },
+      { name: 'Postman' },
+      { name: 'Pytest' },
+    ],
   },
   {
     title: 'Core Concepts',
-    items: ['OOP', 'DBMS', 'DSA', 'Authentication & RBAC', 'API Design', 'Caching', 'Design Patterns'],
+    wide: true,
+    items: [
+      { name: 'OOP' },
+      { name: 'DBMS' },
+      { name: 'DSA' },
+      { name: 'Authentication & RBAC' },
+      { name: 'API Design' },
+      { name: 'Caching' },
+      { name: 'Design Patterns' },
+    ],
+  },
+]
+
+const problemSolvingTopics = [
+  {
+    title: 'Core Data Structures',
+    items: ['Arrays', 'Linked Lists', 'Stacks', 'Queues', 'Hash Tables', 'Strings'],
+  },
+  {
+    title: 'Non-Linear & Advanced Structures',
+    items: ['Binary Trees', 'BST', 'Heaps/Priority Queues', 'Tries', 'Graphs'],
+  },
+  {
+    title: 'Algorithmic Paradigms',
+    items: ['Two Pointers', 'Sliding Window', 'Binary Search', 'Sorting', 'Recursion'],
+  },
+  {
+    title: 'Advanced Problem Solving',
+    items: ['Dynamic Programming (DP)', 'Greedy Algorithms', 'Backtracking', 'Bit Manipulation', 'Graph Traversals (DFS/BFS)'],
   },
 ]
 
@@ -56,8 +112,9 @@ const projects = [
     title: 'AI Event Assistant – LLM Microservice (for Fiestura)',
     image: '/aifiestura.png',
     fullSize: true,
+    milestone: '17/17 tests passing',
     description:
-      'Built a FastAPI microservice that turns natural-language queries into structured search filters using the Groq LLM API (openai/gpt-oss-20b) and Pydantic schemas, and fetches events from the Node.js backend over HTTPX. Designed an AIProvider abstraction with the Factory Pattern for environment-based provider selection, with a rule-based fallback. Wrote 17 Pytest cases covering API health, chat validation and event search; all passing.',
+      'Built a FastAPI microservice that turns natural-language queries into structured search filters using the Groq LLM API (openai/gpt-oss-20b) and Pydantic schemas, and fetches events from the Node.js backend over HTTPX. Designed an AIProvider abstraction with the Factory Pattern for environment-based provider selection, with a rule-based fallback. Added Pytest coverage for API health, chat validation and event search.',
     tech: ['Python', 'FastAPI', 'Pydantic', 'HTTPX', 'Groq API', 'Pytest'],
     date: '2026',
     links: [],
@@ -78,10 +135,12 @@ const projects = [
 
 const projectCount = projects.length
 
+const leetcodeProfileUrl = 'https://leetcode.com/u/AKSHANSH-ALLKILLED/'
+
 const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/akshansh-yadav-b82a73189' },
   { name: 'GitHub', url: 'https://github.com/akshanshy' },
-  { name: 'LeetCode', url: 'https://leetcode.com/u/AKSHANSH-ALLKILLED/' },
+  { name: 'LeetCode', url: leetcodeProfileUrl },
 ]
 
 function SectionHeading({ number, children }) {
@@ -153,7 +212,7 @@ function App() {
             </h1>
             <div className="hero-bottom">
               <p className="hero-intro">
-                Final-year B.Tech student building toward software development and backend engineering roles.
+                Mostly Node.js, Express, MongoDB and Redis, with Python for AI services.
               </p>
               <div className="hero-links">
                 <a className="text-link" href="#projects">
@@ -200,7 +259,7 @@ function App() {
                 <p>
                   I&apos;ve built and deployed a MERN-stack platform with payments,
                   Redis caching and Docker, plus a Python microservice with LLM
-                  integration. I&apos;ve solved 680+ DSA problems.
+                  integration.
                 </p>
                 <p className="education-detail">
                   <strong>2023–2027</strong> · B.Tech, Electronics &amp;
@@ -218,38 +277,87 @@ function App() {
           <div className="section-wrap skills-inner">
             <SectionHeading number="02">What I work with</SectionHeading>
             <div className="skills-topline">
-              <p>Tools and technologies documented in my resume.</p>
-              <div className="resume-metrics">
-                <div className="resume-metric">
-                  <strong>{String(projectCount).padStart(2, '0')}</strong>
-                  <span>projects listed</span>
-                </div>
-                <div className="resume-metric">
-                  <strong>680<span>+</span></strong>
-                  <span>DSA problems</span>
-                </div>
-                <a
-                  className="resume-metric"
-                  href="https://leetcode.com/u/AKSHANSH-ALLKILLED/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <strong>650<span>+</span></strong>
-                  <span>LeetCode · 1550+ rating <span aria-hidden="true">↗</span></span>
-                </a>
-              </div>
+              <p>A backend-first toolkit for production web apps and AI services.</p>
             </div>
             <div className="skills-grid">
               {skillGroups.map((group, index) => (
-                <div className="skill-group" key={group.title}>
+                <div className={`skill-group${group.wide ? ' skill-group--wide' : ''}`} key={group.title}>
                   <span className="skill-index">0{index + 1}</span>
                   <h3>{group.title}</h3>
                   <ul>
-                    {group.items.map((skill) => <li key={skill}>{skill}</li>)}
+                    {group.items.map((skill) => (
+                      <li className={skill.core ? 'skill-chip skill-chip--core' : 'skill-chip'} key={skill.name}>
+                        {skill.name}
+                        {skill.context && <span className="skill-context">→ {skill.context}</span>}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               ))}
             </div>
+            <section className="problem-solving" aria-labelledby="problem-solving-title">
+              <a
+                className="problem-solving__stats"
+                href={leetcodeProfileUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="View LeetCode profile in a new tab"
+              >
+                <div className="problem-solving__stats-heading">
+                  <h3 id="problem-solving-title">Problem Solving</h3>
+                  <span className="problem-solving__profile-link">
+                    Click to view full profile
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
+                      <path d="M4.5 11.5 11.5 4.5M5 4.5h6.5V11" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="problem-solving__metrics">
+                  <div className="problem-solving__metric">
+                    <p className="problem-solving__metric-line">
+                      <strong>650+</strong>
+                      <span>on LeetCode</span>
+                    </p>
+                    <p className="problem-solving__detail">
+                      150 Easy <span aria-hidden="true">•</span> 400 Medium <span aria-hidden="true">•</span> 100 Hard
+                    </p>
+                  </div>
+                  <div className="problem-solving__metric problem-solving__rating">
+                    <span className="problem-solving__metric-line">
+                      <span>LeetCode Contest Rating:</span>
+                      <strong>1,550+</strong>
+                      <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
+                        <path d="M4.5 11.5 11.5 4.5M5 4.5h6.5V11" />
+                      </svg>
+                    </span>
+                  </div>
+                  <div className="problem-solving__metric">
+                    <p className="problem-solving__metric-line">
+                      <strong>680+</strong>
+                      <span>Total Solved</span>
+                    </p>
+                    <p className="problem-solving__detail">+30 on Codeforces / GFG</p>
+                  </div>
+                </div>
+                <p className="problem-solving__language">All problems solved using C++</p>
+                <p className="problem-solving__mentoring">
+                  Mentored juniors in C++ and DSA.
+                </p>
+              </a>
+              <div className="problem-solving__topics">
+                <h4>Topics Covered</h4>
+                <div className="problem-solving__topic-groups">
+                  {problemSolvingTopics.map((group) => (
+                    <div className="problem-solving__topic-group" key={group.title}>
+                      <h5>{group.title}</h5>
+                      <ul>
+                        {group.items.map((topic) => <li key={topic}>{topic}</li>)}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -265,6 +373,9 @@ function App() {
                     <h3>{project.title}</h3>
                     <span className="project-date">{project.date}</span>
                   </div>
+                  {project.milestone && (
+                    <p className="project-milestone">{project.milestone}</p>
+                  )}
                   {project.image && (
                     <IsometricShowcase
                       className="project-showcase"
