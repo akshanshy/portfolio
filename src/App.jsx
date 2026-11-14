@@ -54,6 +54,7 @@ const projects = [
   {
     title: 'AI Event Assistant – LLM Microservice (for Fiestura)',
     image: '/aifiestura.png',
+    fullSize: true,
     description:
       'Built a FastAPI microservice that turns natural-language queries into structured search filters using the Groq LLM API (openai/gpt-oss-20b) and Pydantic schemas, and fetches events from the Node.js backend over HTTPX. Designed an AIProvider abstraction with the Factory Pattern for environment-based provider selection, with a rule-based fallback. Wrote 17 Pytest cases covering API health, chat validation and event search; all passing.',
     tech: ['Python', 'FastAPI', 'Pydantic', 'HTTPX', 'Groq API', 'Pytest'],
@@ -229,6 +230,7 @@ function App() {
                       className="project-showcase"
                       src={project.image}
                       alt={`${project.title} project screenshot`}
+                      fullSize={project.fullSize}
                     />
                   )}
                   <p className="project-description">{project.description}</p>
