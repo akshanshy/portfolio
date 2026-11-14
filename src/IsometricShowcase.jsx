@@ -20,7 +20,7 @@ function IsometricShowcase({
 
     const x = (event.clientX - bounds.left) / bounds.width - 0.5
     const y = (event.clientY - bounds.top) / bounds.height - 0.5
-    const maxTilt = 6
+    const maxTilt = 18
     const rotateX = -y * maxTilt
     const rotateY = x * maxTilt
 
