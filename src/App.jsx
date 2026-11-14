@@ -42,7 +42,6 @@ const projects = [
   {
     title: 'Fiestura – Full-Stack Event Management Platform',
     image: '/fiestura.jpg',
-    imageTilt: 'left',
     description:
       'Built a full-stack event platform with event discovery, registration, JWT authentication, role-based access control and admin workflows; live with 16 events. Integrated Razorpay with server-side order creation, payment verification, webhook handling and idempotency to avoid duplicate payment processing. Improved data access with MongoDB indexes, aggregation pipelines and pagination; added Redis caching with TTL expiry and cache invalidation. Containerized the backend with Docker and Docker Compose (API + Redis). Analysed synthetic event, registration and payment data with SQL and Pandas and charted event popularity and registration trends.',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Redis', 'Docker'],
@@ -63,7 +62,6 @@ const projects = [
   {
     title: 'Inventra – Inventory Management System',
     image: '/inventra.jpg',
-    imageTilt: 'right',
     description:
       'Building separate supplier and shop-owner workflows for inventory management; adding product and stock management with real-time sync via Socket.IO (in progress).',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO'],
@@ -170,7 +168,6 @@ function App() {
               className="about-showcase"
               src="/akshansh-showcase.jpg"
               alt="Portrait of Akshansh Yadav"
-              tilt="right"
             />
           </div>
         </section>
@@ -231,7 +228,6 @@ function App() {
                       className="project-showcase"
                       src={project.image}
                       alt={`${project.title} project screenshot`}
-                      tilt={project.imageTilt}
                     />
                   )}
                   <p className="project-description">{project.description}</p>
