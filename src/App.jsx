@@ -7,45 +7,73 @@ const navigation = [
 
 const skillGroups = [
   {
-    title: 'Frontend',
-    items: ['JavaScript', 'React', 'HTML & CSS'],
+    title: 'Languages',
+    items: ['C++', 'JavaScript', 'Python', 'SQL'],
   },
   {
     title: 'Backend',
-    items: ['Node.js', 'Express.js', 'REST APIs', 'MongoDB', 'Authentication'],
+    items: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'JWT', 'Razorpay'],
   },
   {
-    title: 'Engineering',
-    items: ['C++', 'Data structures', 'OOP', 'DBMS'],
+    title: 'Frontend',
+    items: ['React.js', 'HTML', 'CSS'],
+  },
+  {
+    title: 'Data & Caching',
+    items: ['MongoDB', 'MySQL', 'Redis'],
+  },
+  {
+    title: 'GenAI',
+    items: ['Groq API', 'LLM Integration', 'Structured Output (Pydantic)'],
   },
   {
     title: 'Tools',
-    items: ['Git', 'Postman', 'Razorpay'],
+    items: ['Docker', 'Git', 'GitHub', 'Postman', 'Pytest', 'Pandas', 'Matplotlib'],
+  },
+  {
+    title: 'Core Concepts',
+    items: ['OOP', 'DBMS', 'DSA', 'Authentication & RBAC', 'API Design', 'Caching', 'Design Patterns'],
   },
 ]
 
 const projects = [
   {
-    title: 'Inventra',
-    subtitle: 'Supplier & inventory platform',
+    title: 'Fiestura – Full-Stack Event Management Platform',
+    image: '/fiestura.jpg',
+    imageTilt: 'left',
     description:
-      'A full-stack platform connecting suppliers and shops, with inventory tracking, validated APIs, and structured product, order, and transaction data.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    date: 'Apr 2026',
-    liveLink: 'https://inventra-ten-beta.vercel.app/',
-    githubLink: 'https://github.com/akshanshy/Inventra',
+      'Built a full-stack event platform with event discovery, registration, JWT authentication, role-based access control and admin workflows; live with 16 events. Integrated Razorpay with server-side order creation, payment verification, webhook handling and idempotency to avoid duplicate payment processing. Improved data access with MongoDB indexes, aggregation pipelines and pagination; added Redis caching with TTL expiry and cache invalidation. Containerized the backend with Docker and Docker Compose (API + Redis). Analysed synthetic event, registration and payment data with SQL and Pandas and charted event popularity and registration trends.',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Redis', 'Docker'],
+    date: 'Feb 2026 – Present',
+    links: [
+      { label: 'Live site', url: 'https://fiestura.vercel.app/' },
+      { label: 'Source code', url: 'https://github.com/akshanshy/fiestura' },
+    ],
   },
   {
-    title: 'Fiestura',
-    subtitle: 'Event booking platform',
+    title: 'AI Event Assistant – LLM Microservice (for Fiestura)',
     description:
-      'An event platform with authentication and role-based access, including a secure Razorpay payment flow for order creation and verification.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Razorpay'],
-    date: 'Feb 2026',
-    liveLink: 'https://fiestura.vercel.app/',
-    githubLink: 'https://github.com/akshanshy/fiestura',
+      'Built a FastAPI microservice that turns natural-language queries into structured search filters using the Groq LLM API (openai/gpt-oss-20b) and Pydantic schemas, and fetches events from the Node.js backend over HTTPX. Designed an AIProvider abstraction with the Factory Pattern for environment-based provider selection, with a rule-based fallback. Wrote 17 Pytest cases covering API health, chat validation and event search; all passing.',
+    tech: ['Python', 'FastAPI', 'Pydantic', 'HTTPX', 'Groq API', 'Pytest'],
+    date: '2026',
+    links: [],
+  },
+  {
+    title: 'Inventra – Inventory Management System',
+    image: '/inventra.jpg',
+    imageTilt: 'right',
+    description:
+      'Building separate supplier and shop-owner workflows for inventory management; adding product and stock management with real-time sync via Socket.IO (in progress).',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO'],
+    date: '2026 – Present',
+    links: [
+      { label: 'Live site', url: 'https://inventra-ten-beta.vercel.app/' },
+      { label: 'Source code', url: 'https://github.com/akshanshy/Inventra' },
+    ],
   },
 ]
+
+const projectCount = projects.length
 
 const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/akshansh-yadav-b82a73189' },
@@ -83,7 +111,7 @@ function App() {
 
       <main>
         <section className="hero section-wrap" id="home">
-          <p className="eyebrow"><span className="availability-dot" /> Full-stack developer · Pune, India</p>
+          <p className="eyebrow"><span className="availability-dot" /> Software development · Backend engineering</p>
           <h1>
             Akshansh
             <br />
@@ -91,7 +119,7 @@ function App() {
           </h1>
           <div className="hero-bottom">
             <p className="hero-intro">
-              I build thoughtful digital experiences and the systems that power them.
+              Final-year B.Tech student building toward software development and backend engineering roles.
             </p>
             <div className="hero-links">
               <a className="text-link" href="#projects">
@@ -109,22 +137,26 @@ function App() {
           <SectionHeading number="01">A little about me</SectionHeading>
           <div className="about-grid">
             <h3>
-              Good software is
+              Building
               <br />
-              clear, useful, and
+              software,
               <br />
-              made with care.
+              from the ground up.
             </h3>
             <div className="about-copy">
               <p>
-                I&apos;m Akshansh, a full-stack developer focused on building reliable
-                web applications with the MERN stack. I enjoy turning complex
-                problems into simple, well-considered products.
+                I&apos;m Akshansh, a final-year B.Tech student in Electronics &amp;
+                Telecommunication Engineering at Army Institute of Technology,
+                Pune. I&apos;m targeting software development and backend engineering roles.
               </p>
               <p>
-                From designing APIs and data models to shaping the details of an
-                interface, I care about how every part works together. I&apos;m
-                currently based in Pune, Maharashtra.
+                I&apos;ve built and deployed a MERN-stack platform with payments,
+                Redis caching and Docker, plus a Python microservice with LLM
+                integration. I&apos;ve solved 680+ DSA problems.
+              </p>
+              <p className="education-detail">
+                <strong>2023–2027</strong> · B.Tech, Electronics &amp;
+                Telecommunication Engineering · CGPA 7.2 (till 6th semester)
               </p>
               <a className="text-link" href="mailto:akshanshy2@gmail.com">
                 Get in touch <span aria-hidden="true">↗</span>
@@ -137,16 +169,26 @@ function App() {
           <div className="section-wrap skills-inner">
             <SectionHeading number="02">What I work with</SectionHeading>
             <div className="skills-topline">
-              <p>A practical toolkit for building end-to-end products.</p>
-              <a
-                className="skills-stat"
-                href="https://leetcode.com/u/AKSHANSH-ALLKILLED/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <strong>500<span>+</span></strong>
-                <span>problems solved <span aria-hidden="true">↗</span></span>
-              </a>
+              <p>Tools and technologies documented in my resume.</p>
+              <div className="resume-metrics">
+                <div className="resume-metric">
+                  <strong>{String(projectCount).padStart(2, '0')}</strong>
+                  <span>projects listed</span>
+                </div>
+                <div className="resume-metric">
+                  <strong>680<span>+</span></strong>
+                  <span>DSA problems</span>
+                </div>
+                <a
+                  className="resume-metric"
+                  href="https://leetcode.com/u/AKSHANSH-ALLKILLED/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>650<span>+</span></strong>
+                  <span>LeetCode · 1550+ rating <span aria-hidden="true">↗</span></span>
+                </a>
+              </div>
             </div>
             <div className="skills-grid">
               {skillGroups.map((group, index) => (
@@ -164,31 +206,39 @@ function App() {
 
         <section className="projects section-wrap" id="projects">
           <SectionHeading number="03">Selected projects</SectionHeading>
-          <p className="projects-intro">A few things I&apos;ve been building.</p>
+          <p className="projects-intro">{projectCount} projects listed in my resume.</p>
           <div className="project-list">
             {projects.map((project, index) => (
               <article className="project" key={project.title}>
                 <span className="project-number">0{index + 1}</span>
                 <div className="project-main">
                   <div className="project-title-row">
-                    <div>
-                      <p className="project-subtitle">{project.subtitle}</p>
-                      <h3>{project.title}</h3>
-                    </div>
+                    <h3>{project.title}</h3>
                     <span className="project-date">{project.date}</span>
                   </div>
+                  {project.image && (
+                    <div className={`project-mockup project-mockup--${project.imageTilt}`}>
+                      <img
+                        src={project.image}
+                        alt={`${project.title} project screenshot`}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
                   <p className="project-description">{project.description}</p>
                   <ul className="project-tags" aria-label={`${project.title} technologies`}>
                     {project.tech.map((item) => <li key={item}>{item}</li>)}
                   </ul>
-                  <div className="project-links">
-                    <a href={project.liveLink} target="_blank" rel="noreferrer">
-                      Live site <span aria-hidden="true">↗</span>
-                    </a>
-                    <a href={project.githubLink} target="_blank" rel="noreferrer">
-                      Source code <span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
+                  {project.links.length > 0 && (
+                    <div className="project-links">
+                      {project.links.map((link) => (
+                        <a key={link.label} href={link.url} target="_blank" rel="noreferrer">
+                          {link.label} <span aria-hidden="true">↗</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
