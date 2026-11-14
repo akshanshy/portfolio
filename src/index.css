@@ -663,6 +663,17 @@ a:focus-visible {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.16);
   }
 
+  .project-mockup--left:hover img,
+  .project-mockup--right:hover img {
+    transform: none;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.16);
+  }
+
+  .project-mockup:hover::before {
+    opacity: 0.2;
+    transform: translateY(13px);
+  }
+
   .contact {
     padding-top: 54px;
     padding-bottom: 85px;
