@@ -41,7 +41,7 @@ const skillGroups = [
 const projects = [
   {
     title: 'Fiestura – Full-Stack Event Management Platform',
-    image: '/fiestura.jpg',
+    image: '/fiestura.png',
     description:
       'Built a full-stack event platform with event discovery, registration, JWT authentication, role-based access control and admin workflows; live with 16 events. Integrated Razorpay with server-side order creation, payment verification, webhook handling and idempotency to avoid duplicate payment processing. Improved data access with MongoDB indexes, aggregation pipelines and pagination; added Redis caching with TTL expiry and cache invalidation. Containerized the backend with Docker and Docker Compose (API + Redis). Analysed synthetic event, registration and payment data with SQL and Pandas and charted event popularity and registration trends.',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Redis', 'Docker'],
@@ -53,6 +53,7 @@ const projects = [
   },
   {
     title: 'AI Event Assistant – LLM Microservice (for Fiestura)',
+    image: '/aifiestura.png',
     description:
       'Built a FastAPI microservice that turns natural-language queries into structured search filters using the Groq LLM API (openai/gpt-oss-20b) and Pydantic schemas, and fetches events from the Node.js backend over HTTPX. Designed an AIProvider abstraction with the Factory Pattern for environment-based provider selection, with a rule-based fallback. Wrote 17 Pytest cases covering API health, chat validation and event search; all passing.',
     tech: ['Python', 'FastAPI', 'Pydantic', 'HTTPX', 'Groq API', 'Pytest'],
