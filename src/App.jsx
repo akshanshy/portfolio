@@ -1,3 +1,5 @@
+import IsometricShowcase from './IsometricShowcase.jsx'
+
 const navigation = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
@@ -136,32 +138,40 @@ function App() {
         <section className="about section-wrap" id="about">
           <SectionHeading number="01">A little about me</SectionHeading>
           <div className="about-grid">
-            <h3>
-              Building
-              <br />
-              software,
-              <br />
-              from the ground up.
-            </h3>
-            <div className="about-copy">
-              <p>
-                I&apos;m Akshansh, a final-year B.Tech student in Electronics &amp;
-                Telecommunication Engineering at Army Institute of Technology,
-                Pune. I&apos;m targeting software development and backend engineering roles.
-              </p>
-              <p>
-                I&apos;ve built and deployed a MERN-stack platform with payments,
-                Redis caching and Docker, plus a Python microservice with LLM
-                integration. I&apos;ve solved 680+ DSA problems.
-              </p>
-              <p className="education-detail">
-                <strong>2023–2027</strong> · B.Tech, Electronics &amp;
-                Telecommunication Engineering · CGPA 7.2 (till 6th semester)
-              </p>
-              <a className="text-link" href="mailto:akshanshy2@gmail.com">
-                Get in touch <span aria-hidden="true">↗</span>
-              </a>
+            <div className="about-copy-column">
+              <h3>
+                Building
+                <br />
+                software,
+                <br />
+                from the ground up.
+              </h3>
+              <div className="about-copy">
+                <p>
+                  I&apos;m Akshansh, a final-year B.Tech student in Electronics &amp;
+                  Telecommunication Engineering at Army Institute of Technology,
+                  Pune. I&apos;m targeting software development and backend engineering roles.
+                </p>
+                <p>
+                  I&apos;ve built and deployed a MERN-stack platform with payments,
+                  Redis caching and Docker, plus a Python microservice with LLM
+                  integration. I&apos;ve solved 680+ DSA problems.
+                </p>
+                <p className="education-detail">
+                  <strong>2023–2027</strong> · B.Tech, Electronics &amp;
+                  Telecommunication Engineering · CGPA 7.2 (till 6th semester)
+                </p>
+                <a className="text-link" href="mailto:akshanshy2@gmail.com">
+                  Get in touch <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
+            <IsometricShowcase
+              className="about-showcase"
+              src="/akshansh-showcase.jpg"
+              alt="Portrait of Akshansh Yadav"
+              tilt="right"
+            />
           </div>
         </section>
 
@@ -217,14 +227,12 @@ function App() {
                     <span className="project-date">{project.date}</span>
                   </div>
                   {project.image && (
-                    <div className={`project-mockup project-mockup--${project.imageTilt}`}>
-                      <img
-                        src={project.image}
-                        alt={`${project.title} project screenshot`}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
+                    <IsometricShowcase
+                      className="project-showcase"
+                      src={project.image}
+                      alt={`${project.title} project screenshot`}
+                      tilt={project.imageTilt}
+                    />
                   )}
                   <p className="project-description">{project.description}</p>
                   <ul className="project-tags" aria-label={`${project.title} technologies`}>
