@@ -152,6 +152,22 @@ function SectionHeading({ number, children }) {
   )
 }
 
+function LogoMark() {
+  return (
+    <svg className="wordmark-mark" viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="4" y="4" width="56" height="56" rx="14" fill="none" stroke="currentColor" strokeWidth="3" />
+      <path
+        d="m15 44 8-23 8 23m-13-9h10m6-14 8 10 8-10m-8 10v13"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="3"
+      />
+    </svg>
+  )
+}
+
 function App() {
   const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'))
 
@@ -159,6 +175,8 @@ function App() {
     const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark'
     window.localStorage.setItem('portfolio-theme', nextTheme)
     document.documentElement.classList.toggle('dark', nextTheme === 'dark')
+    document.getElementById('site-favicon').href =
+      nextTheme === 'dark' ? '/ay-mark-dark.svg' : '/ay-mark.svg'
     setIsDark(nextTheme === 'dark')
   }
 
@@ -166,7 +184,7 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Akshansh Yadav, home">
-          AY<span>.</span>
+          <LogoMark />
         </a>
         <nav className="main-nav" aria-label="Main navigation">
           {navigation.map((item) => (
@@ -422,7 +440,7 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <a className="wordmark" href="#home" aria-label="Back to top">AY<span>.</span></a>
+        <a className="wordmark" href="#home" aria-label="Back to top"><LogoMark /></a>
         <p>Designed &amp; built by Akshansh Yadav · © 2026</p>
         <a href="#home">Back to top ↑</a>
       </footer>
